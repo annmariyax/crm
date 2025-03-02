@@ -1,0 +1,48 @@
+{%extends 'base.html'%}
+{%block section%}
+<main class="h-full pb-16 overflow-y-auto">
+    <div class="container grid px-6 py-4 mx-auto">
+      <div
+      class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800"
+    >
+    <div class="flex items-center space-x-6">
+      <img src="{{student.photo.url}}" alt="Student Photo" class="w-56 h-56 rounded-lg  border-4 border-blue-500">
+      <div>
+        <h2 class="text-2xl font-semibold text-gray-800">{{student.first_name}}  {{student.last_name}}</h2>
+        <p class="text-sm text-gray-500">{{student.email}}</p>
+        <p class="text-sm text-gray-500">{{student.contact_num}}</p>
+      </div>
+    </div>
+    <div class="flex items-center space-x-6 my-6">
+      <span class="font-medium text-gray-700">Admission Number:</span>
+      <span class="text-gray-600">{{student.adm_number}}</span>
+    </div>
+    <div class="flex items-center space-x-6 my-6">
+      <span class="font-medium text-gray-700">Course:</span>
+      <span class="text-gray-600">{{student.course.code}}</span>
+    </div>
+    <div class="flex items-center space-x-6 my-6">
+      <span class="font-medium text-gray-700">Batch:</span>
+      <span class="text-gray-600">{{student.batch.name}}</span>
+    </div>
+    <div class="flex items-center space-x-6 my-6">
+      <span class="font-medium text-gray-700">Batch Date:</span>
+      <span class="text-gray-600">{{student.batch.start_date | date:"d-m-Y"}}</span>
+    </div>
+    <div class="flex items-center space-x-6 my-6">
+      <span class="font-medium text-gray-700">Join Date:</span>
+      <span class="text-gray-600">{{student.join_date | date:"d-m-Y"}}</span>
+    </div>
+    <div class="flex items-center space-x-6 my-6">
+      <span class="font-medium text-gray-700">Address:</span>
+      <span class="text-gray-600">{{student.house_name}}, {{student.post_office}} P O {{student.district}} pin:{{student.pincode}}</span>
+    </div>
+  
+    <div class="flex items-center space-x-6 my-6">
+      <span class="font-medium text-gray-700">Trainer:</span>
+      <span class="text-gray-600">{{student.trainer.first_name }} {{student.trainer.last_name }}</span>
+    </div>
+      </div>
+    </div>
+  </main>
+  {%endblock%}

@@ -1,0 +1,187 @@
+{%extends 'base.html'%}
+{%block section%}
+<main class="h-full pb-16 overflow-y-auto">
+    <form action="" method="post" enctype="multipart/form-data">
+      {%csrf_token%}
+    <div class="container px-6 mx-auto grid">
+      <h2
+        class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"
+      >
+        Update Student details
+      </h2>
+      <!-- CTA -->
+      <h4
+      class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300"
+    >
+      Personal Details
+    </h4>
+      <div
+        class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800"
+      >
+        <label class="block text-sm">
+          <span class="text-gray-700 dark:text-gray-400">First Name</span><span class="text-red-600">*</span>
+          {{form.first_name}}
+          <!-- <input
+            type="text"
+            class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+            placeholder=""
+            name="firstname"
+          /> -->
+        </label>
+
+        <label class="block text-sm mt-4">
+            <span class="text-gray-700 dark:text-gray-400">Last Name</span><span class="text-red-600">*</span>
+            {{form.last_name}}
+            <!-- <input
+              type="text"
+              class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+              placeholder=""
+              name="lastname"
+            /> -->
+          </label>
+
+        <label class="block text-sm mt-4">
+            <span class="text-gray-700 dark:text-gray-400">Photo</span><span class="text-red-600">*</span>
+            {{form.photo}}
+            <img src="{{form.instance.photo.url}}" alt="" class="w-56 h-56 rounded-lg mt-1  border-4 border-blue-500">
+            <div>
+            <!-- <input
+              type="file"
+              class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+              placeholder=""
+              name="photo" -->
+            <!-- /> -->
+          </label>
+
+          <label class="block text-sm mt-4">
+            <span class="text-gray-700 dark:text-gray-400">Email</span><span class="text-red-600">*</span>
+            {{form.email}}
+            <!-- <input
+              type="email"
+              class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+              placeholder=""
+              name="email" -->
+            <!-- /> -->
+          </label>
+          <label class="block text-sm mt-4">
+            <span class="text-gray-700 dark:text-gray-400">Contact Number</span><span class="text-red-600">*</span>
+            {{form.contact_num}}
+            <!-- <input
+              type="text"
+              class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+              placeholder=""
+              name="contactnumber" -->
+            <!-- /> -->
+          </label>
+          <label class="block text-sm mt-4">
+            <span class="text-gray-700 dark:text-gray-400">House Name</span><span class="text-red-600">*</span>
+            {{form.house_name}}
+            <!-- <input
+              type="text"
+              class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+              placeholder=""
+              name="housename" -->
+            <!-- /> -->
+          </label>
+          <label class="block text-sm mt-4">
+            <span class="text-gray-700 dark:text-gray-400">Post Office</span><span class="text-red-600">*</span>
+            {{form.post_office}}
+            <!-- <input
+              type="text"
+              class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+              placeholder=""
+              name="postoffice"
+            /> -->
+          </label>
+          <label class="block mt-4 text-sm">
+            <span class="text-gray-700 dark:text-gray-400">
+              District
+            </span>
+            {{form.district}}
+            <!-- <select name="district"
+              class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-select focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+            >
+             {%for district in districts%}
+              <option value="{{district.value}}">{{district.label}}</option> 
+              {%endfor%}
+              
+            </select> -->
+          </label>
+          <label class="block text-sm mt-4">
+            <span class="text-gray-700 dark:text-gray-400">Pincode</span><span class="text-red-600">*</span>
+            {{form.pincode}}
+            <!-- <input
+              type="text"
+              class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+              placeholder=""
+              name="pincode"
+            /> -->
+          </label>
+          {% if form.pincode.errors%}
+          <span class="text-xs text-red-600 dark:text-red-400">
+            {{form.pincode.errors}}
+          </span>
+          {%endif%}
+        </div>
+        <h4
+            class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300 mt-4"
+          >
+            Course Details
+          </h4>
+          <div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800">
+            <label class="block mt-4 text-sm">
+              <span class="text-gray-700 dark:text-gray-400">Course</span><span class="text-red-600">*</span>
+              {{form.course}}
+              <!-- <select name="course"
+                class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-select focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+              >
+              {%for course in courses%}
+                <option value="{{course.value}}">{{course.label}}</option>
+              {%endfor%}
+                
+              </select> -->
+            </label>
+            <label class="block mt-4 text-sm">
+              <span class="text-gray-700 dark:text-gray-400">Batch</span><span class="text-red-600">*</span>
+              {{form.batch}}
+              <!-- <select name="batch"
+                class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-select focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+              >
+              {%for batch in batches%}
+                <option value="{{batch.value}}">{{batch.label}}</option>
+              {%endfor%}
+                
+              </select> -->
+            </label>
+            <!-- <label class="block text-sm mt-4">
+              <span class="text-gray-700 dark:text-gray-400">Batch Date</span><span class="text-red-600">*</span>
+              {{form.batch_date}}
+               <input
+                type="date"
+                class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                placeholder=""
+                name="batchdate"
+              /> -->
+            <!-- </label>  -->
+            <label class="block mt-4 text-sm">
+                <span class="text-gray-700 dark:text-gray-400">Trainer</span><span class="text-red-600">*</span>
+                {{form.trainer}}
+                <!-- <select name="trainer"
+                  class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-select focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+                >
+                {%for trainer in trainers%}
+                  <option value="{{trainer.value}}">{{trainer.label}}</option>
+                {%endfor%} 
+                </select> -->
+              </label>
+              <div class="flex items-center justify-end">
+                <button type="submit" class="px-5 py-3 my-6 font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
+                    Update
+                  </button>
+              </div>
+          </div>
+    </div>
+</form>
+  </main>
+
+{%endblock%}

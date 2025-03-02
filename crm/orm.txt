@@ -1,0 +1,7 @@
+orm query
+
+model students
+
+students.objects.create(first_name='Ann',last_name='mariya',contact_num='9778597810')
+
+read
