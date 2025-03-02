@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'trainers',
     'authentication',
     'recordings',
+    'academic_counsellors'
 ]
 
 MIDDLEWARE = [

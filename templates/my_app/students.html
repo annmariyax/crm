@@ -1,5 +1,5 @@
 {%extends 'base.html'%}
-
+{%load check_roles%}
 {% block section%}
 <main class="h-full pb-16 overflow-y-auto">
   <div class="container grid px-6 mx-auto">
@@ -11,6 +11,8 @@
       >
         Students
       </h4>
+      {%check_user_role request 'admin,sales' as allow%}
+      {%if allow%}
       <div>
         <a href="{%url 'register'%}">
         <button class="px-5 py-3 font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
@@ -18,6 +20,7 @@
         </button>
       </a>
       </div>
+      {%endif%}
     </div>
     <div class="w-full overflow-hidden rounded-lg shadow-xs">
       <div class="w-full overflow-x-auto">
